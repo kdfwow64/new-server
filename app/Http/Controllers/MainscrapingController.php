@@ -354,6 +354,7 @@ class MainscrapingController extends Controller
 	            }
 	            $pos_temp = $pos % 10;
 	            $pos_1 = ($pos - $pos_temp) / 10;
+	            $pos_temp --;
 	            $pos_str = ($start_page + $pos_1 + 1) * 10 + $pos_temp;
 
 	            $domain = $this->getDomainfromUrl($rank['url']);
