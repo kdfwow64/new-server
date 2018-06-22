@@ -181,7 +181,7 @@ class MainscrapingController extends Controller
 
 	$keywords = explode(",", $test_keywords);
 	if (!count($keywords)) die ("Error: no keywords defined.$NL");
-	if (!rmkdir($working_dir)) die("Failed to create/open $working_dir$NL");
+//	if (!rmkdir($working_dir)) die("Failed to create/open $working_dir$NL");
 
 	$country_data = get_google_cc($test_country, $test_language);
 	if (!$country_data) die("Invalid country/language code specified.$NL");
