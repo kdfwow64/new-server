@@ -218,7 +218,7 @@ class MainscrapingController extends Controller
 	    */
 	    for ($page = $start_page; $page <= $end_page; $page++)
 	    {
-	    //    $serp_data = load_cache($search_string, $page, $country_data, $force_cache); // load results from local cache if available for today
+	        $serp_data = load_cache($search_string, $page, $country_data, $force_cache); // load results from local cache if available for today
 	    	$serp_data = NULL;
 	        $maxpages = 0;
 
@@ -288,7 +288,7 @@ class MainscrapingController extends Controller
 	                $serp_data['cc'] = $country_data['cc'];
 	                $serp_data['lc'] = $country_data['lc'];
 	                $serp_data['result_count'] = $result_count;
-	            //    store_cache($serp_data, $search_string, $page, $country_data); // store results into local cache
+	                store_cache($serp_data, $search_string, $page, $country_data); // store results into local cache
 	            }
 
 	            if ($process_result != "PROCESS_SUCCESS_MORE")
