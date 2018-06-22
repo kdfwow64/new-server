@@ -1,0 +1,78 @@
+.display_none {
+	display: none;
+}
+
+#google_search_div {
+	padding: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#other_search_div {
+	padding: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+table {
+	margin-top: 10px;
+}
+tbody td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+thead {
+	color: #9e2fec;
+	font-weight: bold;
+    border: 2px solid black;
+}
+
+thead td {
+    border: 2px solid black;
+}
+
+.search_title {
+	font-size: 20px;
+    color: #2a14e2;
+    font-weight: 700;
+}
+
+.running {
+	font-size: 30px;
+	font-weight: 900;
+	animation: example 4s infinite;
+}
+
+.table td {
+	padding: 0.35rem;
+}
+
+@keyframes example {
+	0% {color: blue;}
+	50% {color: red;}
+	100% {color: blue;}
+}
+
+#email_template_div {
+	padding: 10px;
+}
+
+.email-btn {
+	margin-top: 10px;
+}
+
+.input-box {
+	border: 1px solid;
+    display: unset;
+    padding: 4px;
+    width: fit-content;
+}
+
+
+#email_title {
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+#blacklist_show_div a:hover {
+	cursor: pointer;
+}
