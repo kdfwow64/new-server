@@ -14,27 +14,37 @@
                         </div>
                     @endif
 
-                    <span class="search_title">Google Search</span>
+                    <span class="search_title">Enter 1 Keyword</span>
                     <span class="running" style="display: none;">It's running...</span>
                     
                     <div class="row" id="google_search_div">
-                        <div class="col-md-4">
-                            <label>Start Page : </label>
-                            <input type="number" class="form-control input-box"  id="start_page" name="start_page" name="start_page" min="0" style="width: 40px;border: solid 1px;" value="0">
-                            <label>End Page : </label>
-                            <input type="number" class="form-control input-box" name="end_page"  id="end_page" name="end_page" min="0" style="width: 40px;border: solid 1px;" value="0">
-                        </div>
 
+                        @if($permission->value == 1)
+                        <div class="col-md-2">
+                        </div>
                         <div class="col-md-4">
                             <input type="input" class="form-control input-box" name="keyword" id="keyword" style="border: solid 1px;" placeholder="Please input keyword..." name="keyword">
                             <button id="google_search" class="btn btn-warning">Search</button>
                         </div>
 
-                        @if($permission->value == 1)
                         <div class="col-md-4">
                             <button id="send_email_btn" class="btn btn-success">Send Mail</button>
                         </div>
+                        <div class="col-md-2">
+                        </div>
+                        @else
+
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-4">
+                            <input type="input" class="form-control input-box" name="keyword" id="keyword" style="border: solid 1px;" placeholder="Please input keyword..." name="keyword">
+                            <button id="google_search" class="btn btn-warning">Search</button>
+                        </div>
+
+                        <div class="col-md-4">
+                        </div>
                         @endif
+
                     </div>
                     <br>
                     <span class="search_title">Search in the Database</span>
@@ -87,44 +97,8 @@
     $(document).ready(function(){
         $("#home_navbar").css('color','#cc02e2');
         $("#home_navbar").css('font-weight','bold');
-        var noteOption = {
-            clickToHide : true,
-            autoHide : false,
-            globalPosition : 'top center',
-            style : 'bootstrap',
-            className : 'error',
-            showAnimation : 'slideDown',
-            gap : 20,
-        }
-        $.notify.defaults(noteOption);
-        $.notify.addStyle('happyblue', {
-          html: "<div><span data-notify-text/></div>",
-          classes: {
-            base: {
-              "white-space": "nowrap",
-              "background-color": "#333399",
-              "padding": "10px",
-              "margin-top" : "45px",
-              "border-radius" : "5px"
-            },
-            superblue: {
-              "color": "white",
-            }
-          }
-        });
-        $('input').change(function(){
-            $('.notifyjs-corner').empty();
-            if($('#start_page').val()>$('#end_page').val()) {
-                $.notify("Input correct pages!",{style:'happyblue',className:'superblue'});
-                if($(this).attr('id') == 'start_page')
-                    $(this).val($('#end_page').val());
-                else
-                    $(this).val($('#start_page').val());
-            }
-        });
+        
         $('#google_search').click(function() {
-            start_page = $('#start_page').val();
-            end_page = $('#end_page').val();
             keyword = $('#keyword').val();
             $('.running').css('display','unset');
             $('.search_title').addClass('display_none');
@@ -135,8 +109,6 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 data: {
-                    start_page: start_page,
-                    end_page: end_page,
                     keyword: keyword
                 },
                 type: 'post',
