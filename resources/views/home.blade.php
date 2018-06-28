@@ -19,38 +19,48 @@
                     
                     <div class="row" id="google_search_div">
 
-                        @if($permission->value == 1)
-                        <div class="col-md-2">
+                        @if($permission->value == 1 && Auth::user()->name == 'Admin')
+                        <div class="row">
+                            <div class="col-md-3">
+                                <input type="input" class="form-control input-box" name="keyword" id="keyword" style="border: solid 1px;" placeholder="Please input keyword...">
+                            </div>
+                            <div class="col-md-3">
+                                <input type="input" class="form-control input-box" name="keyword_city" id="keyword_city" style="border: solid 1px;" placeholder="Please input City...">
+                            </div>
+                            <div class="col-md-3">
+                                <input type="input" class="form-control input-box" name="keyword_state" id="keyword_state" style="border: solid 1px;" placeholder="Please input State...">
+                            </div>
+                            <div class="col-md-3">
+                                <button id="send_email_btn" class="btn btn-success">Send Mail</button>
+                            </div>
                         </div>
-                        <div class="col-md-4">
-                            <input type="input" class="form-control input-box" name="keyword" id="keyword" style="border: solid 1px;" placeholder="Please input keyword..." name="keyword">
+                        <div class="row">
                             <button id="google_search" class="btn btn-warning">Search</button>
-                        </div>
-
-                        <div class="col-md-4">
-                            <button id="send_email_btn" class="btn btn-success">Send Mail</button>
-                        </div>
-                        <div class="col-md-2">
                         </div>
                         @else
-
-                        <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <input type="input" class="form-control input-box" name="keyword" id="keyword" style="border: solid 1px;" placeholder="Please input keyword...">
+                            </div>
+                            <div class="col-md-4">
+                                <input type="input" class="form-control input-box" name="keyword_city" id="keyword_city" style="border: solid 1px;" placeholder="Please input City...">
+                            </div>
+                            <div class="col-md-4">
+                                <input type="input" class="form-control input-box" name="keyword_state" id="keyword_state" style="border: solid 1px;" placeholder="Please input State...">
+                            </div>
                         </div>
-                        <div class="col-md-4">
-                            <input type="input" class="form-control input-box" name="keyword" id="keyword" style="border: solid 1px;" placeholder="Please input keyword..." name="keyword">
+                        <div class="row">
                             <button id="google_search" class="btn btn-warning">Search</button>
-                        </div>
-
-                        <div class="col-md-4">
                         </div>
                         @endif
 
                     </div>
                     <br>
+                    @if(Auth::user()->name == 'Admin')
                     <span class="search_title">Search in the Database</span>
                     <div class="row" id="other_search_div">
                         <div class="col-md-6">
-                            <input type="input" class="form-control input-box" name="domain_keyword" id="domain_keyword" name="domain_keyword" placeholder="Domain keyword ..." style="border: solid 1px;">
+                            <input type="input" class="form-control input-box" name="domain_keyword" id="domain_keyword" placeholder="Domain keyword ..." style="border: solid 1px;">
                             <button id="domain_search" class="btn btn-warning">Search</button>
                             <br>
                             <table id="domain_search_table" class="table table-striped" style="display: none;">
@@ -66,7 +76,7 @@
                         </div>
 
                         <div class="col-md-6">
-                            <input type="input" class="form-control input-box" name="email_keyword" id="email_keyword" name="email_keyword" placeholder="Search Email ..." style="border: solid 1px;">
+                            <input type="input" class="form-control input-box" name="email_keyword" id="email_keyword" placeholder="Search Email ..." style="border: solid 1px;">
                             <button id="email_search" class="btn btn-warning">Search</button>
                             <br>
                             <table id="email_search_table" class="table table-striped" style="display: none;font-size: 13px;">
@@ -81,6 +91,7 @@
                             </table>
                         </div>
                     </div>
+                    @endif
 
 
 
@@ -95,36 +106,72 @@
 <script type="text/javascript">
     
     $(document).ready(function(){
+        var noteOption = {
+            clickToHide : true,
+            autoHide : true,
+            globalPosition : 'top center',
+            style : 'bootstrap',
+            className : 'error',
+            showAnimation : 'slideDown',
+            gap : 20,
+        }
+        $.notify.defaults(noteOption);
+        $.notify.addStyle('happyblue', {
+          html: "<div><span data-notify-text/></div>",
+          classes: {
+            base: {
+              "white-space": "nowrap",
+              "background-color": "#af14e2",
+              "padding": "10px",
+              "margin-top" : "45px",
+              "border-radius" : "5px",
+              "font-weight" : "bold"
+            },
+            superblue: {
+              "color": "white",
+            }
+          }
+        });
         $("#home_navbar").css('color','#cc02e2');
         $("#home_navbar").css('font-weight','bold');
         
         $('#google_search').click(function() {
             keyword = $('#keyword').val();
-            $('.running').css('display','unset');
-            $('.search_title').addClass('display_none');
-            $('#google_search_div').addClass('display_none');
-            $.ajax({
-                url: "{{url('home/scrape')}}",
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                data: {
-                    keyword: keyword
-                },
-                type: 'post',
-                success: function(result) {
-                    $('.running').css('display','none');
-                    $('.search_title').removeClass('display_none');
-                    $('#google_search_div').removeClass('display_none');
-                    console.log(result);
-                },
-                error: function(error) {
-                    $('.running').css('display','none');
-                    $('.search_title').removeClass('display_none');
-                    $('#google_search_div').removeClass('display_none');
-                    alert("Error");
-                }
-            });
+            keyword_city = $('#keyword_city').val();
+            keyword_state = $('#keyword_state').val();
+            
+            $('.notifyjs-corner').empty();
+            if(keyword == '' || keyword_city == '' || keyword == ' ' || keyword_city == ' ')
+                $.notify("Keyword or City can not be null!",{style:'happyblue',className:'superblue'});
+            else {
+                $('.running').css('display','unset');
+                $('.search_title').addClass('display_none');
+                $('#google_search_div').addClass('display_none');
+                $.ajax({
+                    url: "{{url('home/scrape')}}",
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    data: {
+                        keyword: keyword,
+                        keyword_city: keyword_city,
+                        keyword_state: keyword_state
+                    },
+                    type: 'post',
+                    success: function(result) {
+                        $('.running').css('display','none');
+                        $('.search_title').removeClass('display_none');
+                        $('#google_search_div').removeClass('display_none');
+                        console.log(result);
+                    },
+                    error: function(error) {
+                        $('.running').css('display','none');
+                        $('.search_title').removeClass('display_none');
+                        $('#google_search_div').removeClass('display_none');
+                        alert("Error");
+                    }
+                });
+            }
         });
         $('#domain_search').click(function(){
             var domain = $('#domain_keyword').val();

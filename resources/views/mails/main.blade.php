@@ -40,6 +40,14 @@
 
         txt = $('<textarea />').html(txt).text();
         CKEDITOR.instances.editor1.setData(txt);
+
+
+        $('#cke_editor1').click(function() {
+            
+                 alert('Click Event');
+        });
+
+
         var noteOption = {
             clickToHide : true,
             autoHide : true,
