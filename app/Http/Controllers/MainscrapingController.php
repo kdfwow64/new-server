@@ -133,7 +133,10 @@ class MainscrapingController extends Controller
 
 	    // General configuration
 	    $test_website_url = "website.com"; // The URL, or a sub-string of it, of the indexed website.
-	    $test_keywords = $request->input("keyword"); // comma separated keywords to test the rank for
+	    $keyword  =$request->input("keyword");
+	    $keyword_city  =$request->input("keyword_city");
+	    $keyword_state  =$request->input("keyword_state");
+	    $test_keywords = $keyword.' '.$keyword_city.' '.$keyword_state; // comma separated keywords to test the rank for
 	    $test_max_pages = 20; // The number of result pages to test until giving up per keyword.
 	//    $start_page = $request->input("start_page");
 	//    $end_page = $request->input("end_page");
