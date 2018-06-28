@@ -134,9 +134,9 @@ class MainscrapingController extends Controller
 	    // General configuration
 	    $test_website_url = "website.com"; // The URL, or a sub-string of it, of the indexed website.
 	    $test_keywords = $request->input("keyword"); // comma separated keywords to test the rank for
-	    $test_max_pages = 3; // The number of result pages to test until giving up per keyword.
-	    $start_page = $request->input("start_page");
-	    $end_page = $request->input("end_page");
+	    $test_max_pages = 20; // The number of result pages to test until giving up per keyword.
+	//    $start_page = $request->input("start_page");
+	//    $end_page = $request->input("end_page");
 	    $test_100_resultpage = 0; // Warning: Google ranking results may  become inaccurate
 
 	    /* Local result configuration. Enter 'help' to receive a list of possible choices. use global and en for the default worldwide results in english 
@@ -198,8 +198,8 @@ class MainscrapingController extends Controller
 	 */
 	$ch = NULL;
 	$rotate_ip = 0; // variable that triggers an IP rotation (normally only during keyword changes)
-	$max_errors_total = 3; // abort script if there are 3 keywords that can not be scraped (something is going wrong and needs to be checked)
-
+	$max_errors_total = 3; // abort script if there are 3 keywords that can not be scraped (something is going cairo_surface_write_to_png(surface, stream)																									 and needs to be checked)
+																																																																																																										
 	$rank_data = array();
 	$siterank_data = array();
 
@@ -216,7 +216,7 @@ class MainscrapingController extends Controller
 	    /*
 	    * This loop iterates through all result pages for the given keyword
 	    */
-	    for ($page = $start_page; $page <= $end_page; $page++)
+	    for ($page = 0; $page < $test_max_pages; $page++)
 	    {
 	        $serp_data = load_cache($search_string, $page, $country_data, $force_cache); // load results from local cache if available for today
 	    	$serp_data = NULL;

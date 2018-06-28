@@ -37,8 +37,9 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ 'Tool' }}
+                <!--    <a class="navbar-brand" href="{{ url('/') }}" style="padding: 0 !important;">   -->
+                    <a class="navbar-brand" href="" style="padding: 0 !important;">
+                        <img src="{{asset('noback-logo.png')}}" style=" width: 70px;">
                     </a>
                 </div>
 
@@ -53,7 +54,7 @@
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>  
+                    <!--        <li><a href="{{ route('register') }}">Register</a></li>  -->
                         @else
                             <li>
                                 <a id="home_navbar" class="nav-link" href="{{ url('home') }}" role="button"   aria-expanded="false" v-pre>
