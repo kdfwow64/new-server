@@ -17,4 +17,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/scrape', 'MainscrapingController@APISearchwithKeyword');
+Route::get('/scrape', 'MainscrapingController@APISearchwithKeyword');
