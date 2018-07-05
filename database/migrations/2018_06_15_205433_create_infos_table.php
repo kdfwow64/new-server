@@ -15,6 +15,8 @@ class CreateInfosTable extends Migration
     {
         Schema::create('infos', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unsigned()->nullable();
+            $table->integer('option')->unsigned()->nullable();
             $table->string('business_name')->nullable();
             $table->string('domain_name')->nullable();
             $table->integer('rank')->unsigned()->nullable();
