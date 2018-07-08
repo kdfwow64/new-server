@@ -13,6 +13,7 @@ class MainscrapingController extends Controller
     }
 
     public function isEnabledKeyword_api(Request $request) {
+        /*
         $temp  = Keyword::where('user_id','=',$request->input('id'))->orderBy('created_at','DESC')->get(['*'])->first();
         $flag = "";
         if($temp) {
@@ -25,6 +26,8 @@ class MainscrapingController extends Controller
         }
 
         echo $flag;
+        */
+        echo 1;
     }
 
     public function addkeyword_api(Request $request) {
@@ -41,7 +44,7 @@ class MainscrapingController extends Controller
         else
             echo 0;
     }
-    
+
 	public function getDomainfromUrl($url) {
 		if(substr($url, 0, 4) == "http") {
 			$sub_url = substr($url,strpos($url,"/")+2);
