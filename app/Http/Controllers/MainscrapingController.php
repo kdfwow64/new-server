@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\Info;
+use App\Model\Keyword;
 use Illuminate\Http\Request;
 
 class MainscrapingController extends Controller
@@ -14,18 +15,17 @@ class MainscrapingController extends Controller
 
     public function isEnabledKeyword_api(Request $request) {
         $temp  = Keyword::where('user_id','=',$request->input('id'))->orderBy('created_at','DESC')->get(['*'])->first();
-        // $flag = "";
-        // if($temp) {
-        //     $lastTime = new Carbon($temp->created_at);
-        //     $lastTime = $lastTime->addDays(1);
-        //     $currentTime = new Carbon;
-        //     $flag = "disabled";
-        //     if($currentTime->gte($lastTime))
-        //         $flag = "";
-        // }
+        $flag = "";
+        if($temp) {
+            $lastTime = new Carbon($temp->created_at);
+            $lastTime = $lastTime->addDays(1);
+            $currentTime = new Carbon;
+            $flag = "disabled";
+            if($currentTime->gte($lastTime))
+                $flag = "";
+        }
 
-        // echo $flag;
-        echo 1;
+        echo $flag;
     }
 
     public function addkeyword_api(Request $request) {
