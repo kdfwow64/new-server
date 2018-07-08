@@ -29,8 +29,8 @@ class EmailTemplateSeeder extends Seeder
         //
         $user = \App\Model\MailTemplate::create([
             'template_name'      => 'Sample',
-            'template_text'      => 'Hi, This is test email!',
-            'template_text2'     => 'Hi, This is test email!',
+            'template_text'      => '<p>Hi</p>',
+            'template_text2'     => 'Hi',
         ]);
     }
 }

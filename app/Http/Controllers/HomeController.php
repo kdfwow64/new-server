@@ -33,12 +33,15 @@ class HomeController extends Controller
         $id = Auth::user()->id;
 
         $temp  = Keyword::where('user_id','=',Auth::user()->id)->orderBy('created_at','DESC')->get(['*'])->first();
-        $lastTime = new Carbon($temp->created_at);
-        $lastTime = $lastTime->addDays(1);
-        $currentTime = new Carbon;
-        $flag = "disabled";
-        if($currentTime->gte($lastTime))
-            $flag = "";
+        $flag = "";
+        if($temp) {
+            $lastTime = new Carbon($temp->created_at);
+            $lastTime = $lastTime->addDays(1);
+            $currentTime = new Carbon;
+            $flag = "disabled";
+            if($currentTime->gte($lastTime))
+                $flag = "";
+        }
 
         $permission = Permission::get(['*'])->first();
         return view('home',compact('permission','flag'));
