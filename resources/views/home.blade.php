@@ -38,7 +38,7 @@
                         </div>
                         @else
                             @if($flag == "disabled")
-                            <p>Please wait for one day</p>
+                            <p style="font-size: 20px;color: #ff00f7;">Please wait for one day</p>
                             <div class="clock" style="margin: 2em;zoom: 0.55;"></div>
                             @else
                             <div class="row">
@@ -55,6 +55,7 @@
                             </div>
                             <div class="row">
                                 <button id="google_search" class="btn btn-warning">Add keyword</button>
+                                <p id="wait_text" style="display: none;font-size: 20px;color: #ff00f7;">Please wait for a one day</p>
                             </div>
                             @endif
                         @endif
@@ -111,6 +112,7 @@
 <script type="text/javascript">
     var clock;
     $(document).ready(function(){
+        
         var noteOption = {
             clickToHide : true,
             autoHide : true,
@@ -172,8 +174,11 @@
                         console.log(result);
                         if(result == 0)
                             $.notify("Sorry but failed!",{style:'happyblue',className:'superblue'});
-                        else
+                        else {
                             $.notify("A keyword added successfully!",{style:'happyblue',className:'superblue'});
+                            $('#google_search').css('display','none');
+                            $('#wait_text').css('display','unset');
+                        }
                     },
                     error: function(error) {
                         alert("Error");

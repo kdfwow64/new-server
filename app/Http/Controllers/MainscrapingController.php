@@ -419,7 +419,7 @@ class MainscrapingController extends Controller
 		return view('home');
     }
 
-    public function APISearchwithKeyword() {
+    public function APISearchwithKeyword(Request $request) {
     	global $pwd;
         global $uid;
         global $PROXY;

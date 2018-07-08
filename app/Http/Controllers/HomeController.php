@@ -47,6 +47,20 @@ class HomeController extends Controller
         return view('home',compact('permission','flag'));
     }
 
+    public function isEnabledKeyword(Request $request) {
+        $temp  = Keyword::where('user_id','=',$request->input('id'))->orderBy('created_at','DESC')->get(['*'])->first();
+        $flag = "";
+        if($temp) {
+            $lastTime = new Carbon($temp->created_at);
+            $lastTime = $lastTime->addDays(1);
+            $currentTime = new Carbon;
+            $flag = "disabled";
+            if($currentTime->gte($lastTime))
+                $flag = "";
+        }
+
+        echo $flag;
+    }
     public function addkeyword(Request $request) {
         $new_keyword = new Keyword;
         $new_keyword->keyword = $request->input('keyword');
