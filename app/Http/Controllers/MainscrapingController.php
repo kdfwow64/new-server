@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\Info;
 use App\Model\Keyword;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class MainscrapingController extends Controller
