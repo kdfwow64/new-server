@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use database\seeds\EmailTemplateSeeder;
+use database\seeds\PermissionSeeder;
 class DatabaseSeeder extends Seeder
 {
     /**
