@@ -11,6 +11,37 @@ class MainscrapingController extends Controller
     {
         //$this->middleware('auth');
     }
+
+    public function isEnabledKeyword_api(Request $request) {
+        $temp  = Keyword::where('user_id','=',$request->input('id'))->orderBy('created_at','DESC')->get(['*'])->first();
+        $flag = "";
+        if($temp) {
+            $lastTime = new Carbon($temp->created_at);
+            $lastTime = $lastTime->addDays(1);
+            $currentTime = new Carbon;
+            $flag = "disabled";
+            if($currentTime->gte($lastTime))
+                $flag = "";
+        }
+
+        echo $flag;
+    }
+
+    public function addkeyword_api(Request $request) {
+        $new_keyword = new Keyword;
+        $new_keyword->keyword = $request->input('keyword');
+        $new_keyword->city = $request->input('keyword_city');
+        $new_keyword->state = $request->input('keyword_state');
+        $new_keyword->user_id = $request->input('id');
+        $new_keyword->flag = 0;
+        $saved = $new_keyword->save();
+
+        if($saved)
+            echo 1;
+        else
+            echo 0;
+    }
+    
 	public function getDomainfromUrl($url) {
 		if(substr($url, 0, 4) == "http") {
 			$sub_url = substr($url,strpos($url,"/")+2);
