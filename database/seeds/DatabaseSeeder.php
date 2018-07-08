@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use database\seeds\EmailTemplateSeeder;
-use database\seeds\PermissionSeeder;
+use Carbon\Carbon;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -15,6 +14,40 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
         $this->call(EmailTemplateSeeder::class);
     	$this->call(PermissionSeeder::class);
+    }
+}
+
+class EmailTemplateSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        //
+        $user = \App\Model\MailTemplate::create([
+            'template_name'      => 'Sample',
+            'template_text'      => 'Hi, This is test email!',
+            'template_text2'     => 'Hi, This is test email!',
+        ]);
+    }
+}
+
+class PermissionSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $user = \App\Model\Permission::create([
+            'permission'      => 'mailing',
+            'value'      => 1,
+        ]);
     }
 }
 
