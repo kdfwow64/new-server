@@ -5,8 +5,7 @@ namespace App\Model;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
-class Info extends Model
+class Keyword extends Model
 {
-    //
-    protected $table = 'infos';
+    protected $table = 'keywords';
 }

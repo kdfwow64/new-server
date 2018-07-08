@@ -18,7 +18,6 @@
                     <span class="running" style="display: none;">It's running...</span>
                     
                     <div class="row" id="google_search_div">
-
                         @if($permission->value == 1 && Auth::user()->name == 'Admin')
                         <div class="row">
                             <div class="col-md-3">
@@ -38,20 +37,26 @@
                             <button id="google_search" class="btn btn-warning">Search</button>
                         </div>
                         @else
-                        <div class="row">
-                            <div class="col-md-4">
-                                <input type="input" class="form-control input-box" name="keyword" id="keyword" style="border: solid 1px;" placeholder="Please input keyword...">
+                            @if($flag == "disabled")
+                            <p>Please wait for one day</p>
+                            <div class="clock" style="margin: 2em;zoom: 0.55;"></div>
+                            @else
+                            <div class="row">
+                                
+                                <div class="col-md-4">
+                                    <input type="input" class="form-control input-box" name="keyword" id="keyword" style="border: solid 1px;" placeholder="Please input keyword...">
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="input" class="form-control input-box" name="keyword_city" id="keyword_city" style="border: solid 1px;" placeholder="Please input City...">
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="input" class="form-control input-box" name="keyword_state" id="keyword_state" style="border: solid 1px;" placeholder="Please input State...">
+                                </div>
                             </div>
-                            <div class="col-md-4">
-                                <input type="input" class="form-control input-box" name="keyword_city" id="keyword_city" style="border: solid 1px;" placeholder="Please input City...">
+                            <div class="row">
+                                <button id="google_search" class="btn btn-warning">Add keyword</button>
                             </div>
-                            <div class="col-md-4">
-                                <input type="input" class="form-control input-box" name="keyword_state" id="keyword_state" style="border: solid 1px;" placeholder="Please input State...">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <button id="google_search" class="btn btn-warning">Search</button>
-                        </div>
+                            @endif
                         @endif
 
                     </div>
@@ -104,7 +109,7 @@
 
 
 <script type="text/javascript">
-    
+    var clock;
     $(document).ready(function(){
         var noteOption = {
             clickToHide : true,
@@ -132,23 +137,28 @@
             }
           }
         });
+        var date = new Date(Date.UTC(2018,7,8,10,0,0));
+        var now = new Date();
+        var diff = date.getTime()/1000 - now.getTime()/1000;
+        /*
+        clock = $('.clock').FlipClock(diff,{
+            clockFace: 'HourCounter',
+            countdown: true
+        });*/
         $("#home_navbar").css('color','#cc02e2');
         $("#home_navbar").css('font-weight','bold');
         
         $('#google_search').click(function() {
-            keyword = $('#keyword').val();
-            keyword_city = $('#keyword_city').val();
-            keyword_state = $('#keyword_state').val();
+            let keyword = $('#keyword').val();
+            let keyword_city = $('#keyword_city').val();
+            let keyword_state = $('#keyword_state').val();
             
             $('.notifyjs-corner').empty();
             if(keyword == '' || keyword_city == '' || keyword == ' ' || keyword_city == ' ')
                 $.notify("Keyword or City can not be null!",{style:'happyblue',className:'superblue'});
             else {
-                $('.running').css('display','unset');
-                $('.search_title').addClass('display_none');
-                $('#google_search_div').addClass('display_none');
                 $.ajax({
-                    url: "{{url('home/scrape')}}",
+                    url: "{{url('home/addkeyword')}}",
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
@@ -159,15 +169,13 @@
                     },
                     type: 'post',
                     success: function(result) {
-                        $('.running').css('display','none');
-                        $('.search_title').removeClass('display_none');
-                        $('#google_search_div').removeClass('display_none');
                         console.log(result);
+                        if(result == 0)
+                            $.notify("Sorry but failed!",{style:'happyblue',className:'superblue'});
+                        else
+                            $.notify("A keyword added successfully!",{style:'happyblue',className:'superblue'});
                     },
                     error: function(error) {
-                        $('.running').css('display','none');
-                        $('.search_title').removeClass('display_none');
-                        $('#google_search_div').removeClass('display_none');
                         alert("Error");
                     }
                 });

@@ -16,6 +16,7 @@ class CreateInfosTable extends Migration
         Schema::create('infos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned()->nullable();
+            $table->integer('keyword_id')->unsigned()->nullable();
             $table->integer('option')->unsigned()->nullable();
             $table->string('business_name')->nullable();
             $table->string('domain_name')->nullable();
@@ -34,7 +35,7 @@ class CreateInfosTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
+     *gitonline@awsgitonline.aws.synapsegroupinc.com:repos/online/microservices/mat.gitgitonline@awsgitonline.aws.synapsegroupinc.com:repos/online/microservices/mat.git
      * @return void
      */
     public function down()

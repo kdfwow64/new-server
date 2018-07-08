@@ -18,6 +18,8 @@ class CreateKeywordsTable extends Migration
             $table->string('keyword')->nullable();
             $table->string('city')->nullable();
             $table->string('state')->nullable();
+            $table->integer('user_id')->unsigned()->nullable();
+            $table->timestamp('start_date')->nullable();
             $table->integer('flag')->unsigned()->nullable();
             $table->timestamps();
         });

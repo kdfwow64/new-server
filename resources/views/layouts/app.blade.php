@@ -13,12 +13,14 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/flipclock.css') }}" rel="stylesheet">
     <link href="{{ asset('favicon.ico') }}" rel="shortcut icon">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/notify.min.js') }}" defer></script>
     <script src="{{ asset('js/notify.js') }}" defer></script>
+    <script src="{{ asset('js/flipclock.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="//cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>    
 </head>

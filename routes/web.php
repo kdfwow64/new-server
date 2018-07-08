@@ -26,6 +26,7 @@ Route::get('/permission/manage', 'HomeController@permission');
 Route::get('/blacklist/delete/{id}', 'HomeController@blacklistDelete');
 
 Route::post('/home/scrape', 'MainscrapingController@searchwithKeyword');
+Route::post('/home/addkeyword', 'HomeController@addkeyword');
 Route::post('/home/getDomains', 'HomeController@getDomains');
 Route::post('/home/getEmail', 'HomeController@getEmail');
 Route::post('/mail/sendAll', 'MailController@sendAll');
