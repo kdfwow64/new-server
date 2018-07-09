@@ -44,6 +44,16 @@ class MainscrapingController extends Controller
             echo 0;
     }
 
+    public function getLeads_api(Request $request) {
+        $leads_data = Info::where('user_id','=',$request->input('id'))->get(['*']);
+        return ['leads_data' => $leads_data];
+    }
+
+    public function getActive_api(Request $request) {
+        $active_data = Keyword::where('user_id','=',$request->input('id'))->get(['*']);
+        return ['active_data' => $active_data];
+    }
+
 	public function getDomainfromUrl($url) {
 		if(substr($url, 0, 4) == "http") {
 			$sub_url = substr($url,strpos($url,"/")+2);
