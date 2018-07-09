@@ -27,8 +27,8 @@ class MainscrapingController extends Controller
         }
 
         
-
-        return response()->json($flag);
+        return $flag;
+        //return response()->json($flag);
     }
 
     public function addkeyword_api(Request $request) {
