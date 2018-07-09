@@ -50,8 +50,9 @@ class MainscrapingController extends Controller
     }
 
     public function getActive_api(Request $request) {
+    	$id = $request->input('id');
 //        $active_data = Keyword::where('user_id','=',$request->input('id'))->get(['*']);
-    	$active_data = DB::select("SELECT *, COUNT(if(flag = 1, 1, NULL)) as count_flag FROM (SELECT a.id, a.user_id, a.keyword, a.city, a.state,a.flag as status, b.flag FROM keywords a LEFT JOIN infos b ON a.id = b.keyword_id ) AS c GROUP BY id");
+    	$active_data = DB::select(DB::raw("SELECT *, COUNT(if(flag = 1, 1, NULL)) as count_flag FROM (SELECT a.id, a.user_id, a.keyword, a.city, a.state,a.flag as status, b.flag FROM keywords a WHERE user_id = '$id' LEFT JOIN infos b ON a.id = b.keyword_id ) AS c GROUP BY id"));
         return response()->json($active_data);
     }
 
