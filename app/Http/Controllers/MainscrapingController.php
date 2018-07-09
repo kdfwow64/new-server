@@ -25,8 +25,8 @@ class MainscrapingController extends Controller
             if($currentTime->gte($lastTime))
                 $flag = "";
         }
-
-        return response()->json(['flag' => $flag]);
+        return ['flag' => $flag];
+        
     }
 
     public function addkeyword_api(Request $request) {
