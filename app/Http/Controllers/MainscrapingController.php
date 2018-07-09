@@ -26,8 +26,9 @@ class MainscrapingController extends Controller
                 $flag = "";
         }
 
+        $obj = (object) array('flag' => $flag);
         
-        return $flag;
+        return $obj;
         //return response()->json($flag);
     }
 
