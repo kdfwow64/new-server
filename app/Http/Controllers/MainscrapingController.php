@@ -26,10 +26,7 @@ class MainscrapingController extends Controller
                 $flag = "";
         }
 
-        $obj = (object) array('flag' => $flag);
-        $json = json_encode($obj);
-        return $json;
-        //return response()->json($flag);
+        return response()->json($obj);
     }
 
     public function addkeyword_api(Request $request) {
