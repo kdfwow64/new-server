@@ -11,6 +11,23 @@
 |
 */
 
+
+Route::get('', ['middleware' => 'cors', function()
+{
+    return '';
+}]);
+
+Route::get('breweries', ['middleware' => 'cors', function()
+{
+    return \Response::json(\App\Brewery::with('beers', 'geocode')->paginate(10), 200);
+}]);
+
+
+Route::get('breweries', ['middleware' => 'cors', function()
+{
+    return \Response::json(\App\Brewery::with('beers', 'geocode')->paginate(10), 200);
+}]);
+
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -42,10 +59,3 @@ Route::post('/blacklist/getDomains', 'HomeController@getBlacklistDomains');
 Route::post('/blacklist/getEmails', 'HomeController@getBlacklistEmails');
 Route::post('/blacklist/getNames', 'HomeController@getBlacklistNames');
 Route::post('/permission/setPermission', 'HomeController@setPermission');
-
-
-
-Route::get('breweries', ['middleware' => 'cors', function()
-{
-    return \Response::json(\App\Brewery::with('beers', 'geocode')->paginate(10), 200);
-}]);
