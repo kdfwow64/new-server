@@ -17,6 +17,10 @@ Route::get('/', function () {
 Route::get('logout', 'Auth\LoginController@logout');
 Auth::routes();
 
+
+
+Route::get('/api', 'MainscrapingController@getapi');
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/info', 'MainscrapingController@getdetailInfo');
 Route::get('/mail/send', 'MailController@send');

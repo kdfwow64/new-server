@@ -52,9 +52,28 @@ class MainscrapingController extends Controller
 
     public function getActive_api(Request $request) {
     	$id = $request->input('id');
-//        $active_data = Keyword::where('user_id','=',$request->input('id'))->get(['*']);
-    	$query = "SELECT *, COUNT(if(flag = 1, 1, NULL)) as count_flag FROM (SELECT a.id, a.user_id, a.keyword, a.city, a.state,a.flag as status, b.flag FROM keywords a WHERE user_id = '$id' LEFT JOIN infos b ON a.id = b.keyword_id ) AS c GROUP BY id";
-    	$active_data = DB::raw("SELECT *, COUNT(if(flag = 1, 1, NULL)) as count_flag FROM (SELECT a.id, a.user_id, a.keyword, a.city, a.state,a.flag as status, b.flag FROM keywords a LEFT JOIN infos b ON a.id = b.keyword_id WHERE a.user_id = '$id' ) AS c GROUP BY id");
+		$active_data = DB::table('keywords')
+    					->leftJoin('infos','keywords.id', '=', 'infos.keyword_id')
+    					->selectraw('keywords.id, keywords.user_id, keywords.keyword, keywords.city, keywords.state,keywords.flag as status')
+    					->where('keywords.user_id','=',$id)
+    					->selectraw('COUNT(if(infos.flag = 1, 1, NULL)) as count_flag')
+    					->groupBy('keywords.id')
+    					->get();
+        return response()->json($active_data);
+    }
+
+    public function getapi() {
+    	$id = 1;
+//        $active_data = Keyword::where('user_id','=',$id)->get(['*']);
+//    	$active_data = DB::query("SELECT *, COUNT(if(flag = 1, 1, NULL)) as count_flag FROM (SELECT a.id, a.user_id, a.keyword, a.city, a.state,a.flag as status, b.flag FROM keywords a LEFT JOIN infos b ON a.id = b.keyword_id WHERE a.user_id = '$id' ) AS c GROUP BY id")->get();
+
+    	$active_data = DB::table('keywords')
+    					->leftJoin('infos','keywords.id', '=', 'infos.keyword_id')
+    					->selectraw('keywords.id, keywords.user_id, keywords.keyword, keywords.city, keywords.state,keywords.flag as status')
+    					->where('keywords.user_id','=',$id)
+    					->selectraw('COUNT(if(infos.flag = 1, 1, NULL)) as count_flag')
+    					->groupBy('keywords.id')
+    					->get();
         return response()->json($active_data);
     }
 
