@@ -18,8 +18,8 @@
 | loading any of our classes later on. It feels great to relax.
 |
 */
- header("Access-Control-Allow-Origin: http://localhost");
- require __DIR__.'/../bootstrap/autoload.php';
+ header("Access-Control-Allow-Origin: http://prospectpromoter.com");
+ require __DIR__.'/../bootstrap/autoload.php'; header("Access-Control-Allow-Origin: http://localhost");
 
 /*
 |--------------------------------------------------------------------------
