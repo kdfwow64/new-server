@@ -43,3 +43,9 @@ Route::post('/blacklist/getEmails', 'HomeController@getBlacklistEmails');
 Route::post('/blacklist/getNames', 'HomeController@getBlacklistNames');
 Route::post('/permission/setPermission', 'HomeController@setPermission');
 
+
+
+Route::get('breweries', ['middleware' => 'cors', function()
+{
+    return \Response::json(\App\Brewery::with('beers', 'geocode')->paginate(10), 200);
+}]);
