@@ -54,7 +54,7 @@ class MainscrapingController extends Controller
     	$id = $request->input('id');
 //        $active_data = Keyword::where('user_id','=',$request->input('id'))->get(['*']);
     	$query = "SELECT *, COUNT(if(flag = 1, 1, NULL)) as count_flag FROM (SELECT a.id, a.user_id, a.keyword, a.city, a.state,a.flag as status, b.flag FROM keywords a WHERE user_id = '$id' LEFT JOIN infos b ON a.id = b.keyword_id ) AS c GROUP BY id";
-    	$active_data = DB::raw("SELECT *, COUNT(if(flag = 1, 1, NULL)) as count_flag FROM (SELECT a.id, a.user_id, a.keyword, a.city, a.state,a.flag as status, b.flag FROM keywords a WHERE user_id = '$id' LEFT JOIN infos b ON a.id = b.keyword_id ) AS c GROUP BY id");
+    	$active_data = DB::raw("SELECT *, COUNT(if(flag = 1, 1, NULL)) as count_flag FROM (SELECT a.id, a.user_id, a.keyword, a.city, a.state,a.flag as status, b.flag FROM keywords a LEFT JOIN infos b ON a.id = b.keyword_id WHERE a.user_id = '$id' ) AS c GROUP BY id");
         return response()->json($active_data);
     }
 
