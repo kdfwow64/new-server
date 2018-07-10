@@ -16,19 +16,18 @@ class CreateInfosTable extends Migration
         Schema::create('infos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned()->nullable();
-            $table->integer('keyword_id')->unsigned()->nullable();
-            $table->integer('option')->unsigned()->nullable();
+            $table->integer('opt_out')->unsigned()->nullable();
             $table->string('business_name')->nullable();
             $table->string('domain_name')->nullable();
-            $table->integer('rank')->unsigned()->nullable();
+        //    $table->integer('rank')->unsigned()->nullable();
             $table->string('admins_name')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->string('mailing_address')->nullable();
             $table->integer('flag')->unsigned()->nullable();
             $table->integer('black')->unsigned()->nullable();
-            $table->integer('warning_total')->unsigned()->nullable();
-            $table->integer('error_total')->unsigned()->nullable();
+        //    $table->integer('warning_total')->unsigned()->nullable();
+        //    $table->integer('error_total')->unsigned()->nullable();
             $table->timestamps();
         });
     }

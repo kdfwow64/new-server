@@ -34,9 +34,7 @@ Route::get('/', function () {
 Route::get('logout', 'Auth\LoginController@logout');
 Auth::routes();
 
-
-
-Route::get('/api', 'MainscrapingController@getapi');
+Route::get('/scrape', 'MainscrapingController@searchwithKeyword');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/info', 'MainscrapingController@getdetailInfo');
