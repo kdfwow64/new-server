@@ -55,7 +55,6 @@ class MainscrapingController extends Controller
 		$active_data = DB::table('keywords')
     					->leftJoin('infos','keywords.id', '=', 'infos.keyword_id')
     					->selectraw('keywords.id, keywords.user_id, keywords.keyword, keywords.city, keywords.state,keywords.flag as status')
-    					->where('keywords.user_id','=',$id)
     					->selectraw('COUNT(if(infos.flag = 1, 1, NULL)) as count_flag')
     					->groupBy('keywords.id')
     					->get();
@@ -70,6 +69,7 @@ class MainscrapingController extends Controller
     	$active_data = DB::table('keywords')
     					->leftJoin('infos','keywords.id', '=', 'infos.keyword_id')
     					->selectraw('keywords.id, keywords.user_id, keywords.keyword, keywords.city, keywords.state,keywords.flag as status')
+    					->where('keywords.user_id','=',$id)
     					->selectraw('COUNT(if(infos.flag = 1, 1, NULL)) as count_flag')
     					->groupBy('keywords.id')
     					->get();
