@@ -36,7 +36,7 @@ class MainscrapingController extends Controller
         $new_keyword->city = $request->input('keyword_city');
         $new_keyword->state = $request->input('keyword_state');
         $new_keyword->user_id = $request->input('id');
-        $new_keyword->flag = 0;
+        $new_keyword->status = 0;
         $saved = $new_keyword->save();
 
         if($saved)
