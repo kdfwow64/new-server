@@ -19,13 +19,18 @@ class MainscrapingController extends Controller
     public function isEnabledKeyword_api(Request $request) {
         $temp  = Keyword::where('user_id','=',$request->input('id'))->orderBy('created_at','DESC')->get(['*'])->first();
         $flag = "";
-        if($temp) {
+    /*    if($temp) {
             $lastTime = new Carbon($temp->created_at);
             $lastTime = $lastTime->addDays(1);
             $currentTime = new Carbon;
             $flag = "disabled";
             if($currentTime->gte($lastTime))
                 $flag = "";
+        }*/
+        if($temp)
+        {
+        	if($temp->created_at->isToday())
+        		$flag = "disabled";
         }
         return ['flag' => $flag];
         
