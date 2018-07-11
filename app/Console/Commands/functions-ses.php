@@ -707,6 +707,8 @@
         global $PROXY;
         global $PLAN;
         global $NL;
+
+        
         $fp = fsockopen("us-proxies.com", 80);
         if (!$fp)
         {

@@ -83,10 +83,18 @@ class MainscrapingController extends Controller
         return response()->json($active_data);
     }
 
+    public function removeLead_api(Request $request) {
+    	$id = $request->input('id');
+    	if(Info::where('id','=',$id)->delete())
+    		echo 1;
+    	else 
+    		echo 0;
+    }
+
 	public function getDomainfromUrl($url) {
 		if(substr($url, 0, 4) == "http") {
 			$sub_url = substr($url,strpos($url,"/")+2);
-			if(substr($sub_url, 0, 3) == "www")
+			if(substr($sub_url, 0, 4) == "www.")
 				$sub_url = substr($sub_url,4);
 			if(strpos($sub_url,'/') !== false)
 				$sub_url = substr($sub_url, 0, strpos($sub_url, '/'));

@@ -47,7 +47,7 @@ class MainScraping extends Command
     public function getDomainfromUrl($url) {
         if(substr($url, 0, 4) == "http") {
             $sub_url = substr($url,strpos($url,"/")+2);
-            if(substr($sub_url, 0, 3) == "www")
+            if(substr($sub_url, 0, 4) == "www.")
                 $sub_url = substr($sub_url,4);
             if(strpos($sub_url,'/') !== false)
                 $sub_url = substr($sub_url, 0, strpos($sub_url, '/'));
@@ -85,7 +85,7 @@ class MainScraping extends Command
         // General configuration
         $test_website_url = "website.com"; // The URL, or a sub-string of it, of the indexed website.
 
-        $progress = Keyword::where('status','=',0)->orderBy('id')->first();
+        $progress = Keyword::where('status','=',0)->orderBy('id','ASC')->first();
         if(!$progress) {
             echo 'nothing else';
             exit();

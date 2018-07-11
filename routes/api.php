@@ -22,3 +22,4 @@ Route::get('/addkeyword', 'MainscrapingController@addkeyword_api');
 Route::get('/isEnabledKeyword', 'MainscrapingController@isEnabledKeyword_api');
 Route::get('/getLeads', 'MainscrapingController@getLeads_api');
 Route::get('/getActive', 'MainscrapingController@getActive_api');
+Route::get('/removeLead', 'MainscrapingController@removeLead_api');
