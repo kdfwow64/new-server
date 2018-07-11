@@ -292,7 +292,8 @@ class MainScraping extends Command
                         $new_info = new Info();
                         $new_info->business_name = $rank['title'];
                         $new_info->domain_name = $domain;
-                        $new_info->flag = 0;
+                        $new_info->flag = 1;
+                        $new_info->option = 1;
                         $new_info->opt_out = 0;
                         $new_info->black = 0;
                         

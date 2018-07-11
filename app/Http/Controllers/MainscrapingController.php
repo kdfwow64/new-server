@@ -46,7 +46,7 @@ class MainscrapingController extends Controller
     }
 
     public function getLeads_api(Request $request) {
-        $leads_data = Info::where('user_id','=',$request->input('id'))->get(['*']);
+        $leads_data = Info::where('user_id','=',$request->input('id'))->where('flag','=',0)->orderBy('created_at','DESC')->get(['*']);
         return response()->json($leads_data);
     }
 
@@ -380,8 +380,9 @@ class MainscrapingController extends Controller
 			            $new_info = new Info();
 			            $new_info->business_name = $rank['title'];
 			            $new_info->domain_name = $domain;
-			            $new_info->flag = 0;
+			            $new_info->flag = 1;
 			            $new_info->opt_out = 0;
+			            $new_info->option = 1;
 			            $new_info->black = 0;
 			            
 			            if($domain != null ) {
