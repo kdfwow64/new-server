@@ -47,21 +47,6 @@ class HomeController extends Controller
         return view('home',compact('permission','flag'));
     }
 
-    public function addkeyword(Request $request) {
-        $new_keyword = new Keyword;
-        $new_keyword->keyword = $request->input('keyword');
-        $new_keyword->city = $request->input('keyword_city');
-        $new_keyword->state = $request->input('keyword_state');
-        $new_keyword->user_id = Auth::user()->id;
-        $new_keyword->flag = 0;
-        $saved = $new_keyword->save();
-
-        if($saved)
-            echo 1;
-        else
-            echo 0;
-    }
-
     public function getDomains(Request $request) {
         $domain = $request->input('domain');
         $ss = '%'.$domain.'%';

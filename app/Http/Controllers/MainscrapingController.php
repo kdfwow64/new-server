@@ -7,6 +7,7 @@ use App\Model\Keyword;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use DB;
+use Auth;
 
 class MainscrapingController extends Controller
 {
@@ -36,6 +37,21 @@ class MainscrapingController extends Controller
         $new_keyword->city = $request->input('keyword_city');
         $new_keyword->state = $request->input('keyword_state');
         $new_keyword->user_id = $request->input('id');
+        $new_keyword->status = 0;
+        $saved = $new_keyword->save();
+
+        if($saved)
+            echo 1;
+        else
+            echo 0;
+    }
+
+    public function addkeyword(Request $request) {
+        $new_keyword = new Keyword;
+        $new_keyword->keyword = $request->input('keyword');
+        $new_keyword->city = $request->input('keyword_city');
+        $new_keyword->state = $request->input('keyword_state');
+        $new_keyword->user_id = Auth::user()->id;
         $new_keyword->status = 0;
         $saved = $new_keyword->save();
 

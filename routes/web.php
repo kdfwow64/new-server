@@ -17,11 +17,6 @@ Route::get('', ['middleware' => 'cors', function()
     return '';
 }]);
 
-Route::get('breweries', ['middleware' => 'cors', function()
-{
-    return \Response::json(\App\Brewery::with('beers', 'geocode')->paginate(10), 200);
-}]);
-
 
 Route::get('breweries', ['middleware' => 'cors', function()
 {
@@ -31,6 +26,7 @@ Route::get('breweries', ['middleware' => 'cors', function()
 Route::get('/', function () {
     return view('auth.login');
 });
+
 Route::get('logout', 'Auth\LoginController@logout');
 Auth::routes();
 
@@ -45,7 +41,7 @@ Route::get('/permission/manage', 'HomeController@permission');
 Route::get('/blacklist/delete/{id}', 'HomeController@blacklistDelete');
 
 Route::post('/home/scrape', 'MainscrapingController@searchwithKeyword');
-Route::post('/home/addkeyword', 'HomeController@addkeyword');
+Route::post('/home/addkeyword', 'MainscrapingController@addkeyword');
 Route::post('/home/getDomains', 'HomeController@getDomains');
 Route::post('/home/getEmail', 'HomeController@getEmail');
 Route::post('/mail/sendAll', 'MailController@sendAll');
