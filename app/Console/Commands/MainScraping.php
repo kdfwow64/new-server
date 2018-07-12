@@ -302,8 +302,9 @@ class MainScraping extends Command
                                 $new_info->admins_name = $detail_info['administrative_contact']['full_name'];
                                 $new_info->email = $detail_info['administrative_contact']['email_address'];
                                 $new_info->phone = $detail_info['administrative_contact']['phone_number'];
-                                $new_info->mailing_address = $detail_info['administrative_contact']['mailing_address'];
-                                $new_info->flag = 1;
+                                $new_info->mailing_address = $detail_info['administrative_contact']['mailing_address'].$detail_info['administrative_contact']['city_name'].$detail_info['administrative_contact']['state_name'].$detail_info['administrative_contact']['zip_code'].$detail_info['administrative_contact']['country_name'];
+                                $new_info->user_id = $progress->user_id;
+                                $new_info->keyword_id = $progress->id;
                             }
                         }
                         
