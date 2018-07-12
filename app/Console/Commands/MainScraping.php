@@ -85,7 +85,7 @@ class MainScraping extends Command
         // General configuration
         $test_website_url = "website.com"; // The URL, or a sub-string of it, of the indexed website.
 
-        $progress = Keyword::where('status','=',0)->orderBy('id','ASC')->first();
+        $progress = Keyword::where('status','=',0)->orderBy('created_at','ASC')->first();
         if(!$progress) {
             echo 'nothing else';
             exit();
@@ -93,13 +93,12 @@ class MainScraping extends Command
         Keyword::where('id',$progress->id)->update(array('status' => 1));
 
         $test_keywords = $progress->keyword.' '.$progress->city.' '.$progress->state;
-
-//        $test_keywords = "plumber greensboro nc";
         $test_max_pages = 20; 
         $test_100_resultpage = 0; 
 
+        echo $test_keywords;
         
-        $test_country = "us"; 
+        $test_country = "global"; 
         $test_language = "en"; 
         $filter = 1; 
         $force_cache = 0; 
@@ -132,7 +131,7 @@ class MainScraping extends Command
 
         $keywords = explode(",", $test_keywords);
         if (!count($keywords)) die ("Error: no keywords defined.$NL");
-    //  if (!rmkdir($working_dir)) die("Failed to create/open $working_dir$NL");
+        if (!rmkdir($working_dir)) die("Failed to create/open $working_dir$NL");
 
         $country_data = get_google_cc($test_country, $test_language);
         if (!$country_data) die("Invalid country/language code specified.$NL");
@@ -293,8 +292,8 @@ class MainScraping extends Command
                         $new_info->business_name = $rank['title'];
                         $new_info->domain_name = $domain;
                         $new_info->flag = 1;
-                        $new_info->option = 1;
                         $new_info->opt_out = 0;
+                        $new_info->option = 1;
                         $new_info->black = 0;
                         
                         if($domain != null ) {
