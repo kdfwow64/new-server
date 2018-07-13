@@ -77,7 +77,7 @@ class MainscrapingController extends Controller
     					->leftJoin('infos','keywords.id', '=', 'infos.keyword_id')
     					->selectraw('keywords.id, keywords.user_id, keywords.keyword, keywords.city, keywords.state,keywords.status')
     					->where('keywords.user_id','=',$id)
-    					->selectraw('COUNT(if(infos.option = 1, 1, NULL)) as count_flag')
+    					->selectraw('COUNT(if(infos.option = 0, 1, NULL)) as count_flag')
     					->groupBy('keywords.id')
     					->get();
         return response()->json($active_data);
