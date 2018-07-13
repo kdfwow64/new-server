@@ -91,6 +91,8 @@ class MainScraping extends Command
             exit();
         }
         Keyword::where('id',$progress->id)->update(array('status' => 1));
+        $currentTime = new Carbon;
+        Keyword::where('id',$progress->id)->update(array('start_date' => $currentTime));
 
         $test_keywords = $progress->keyword.' '.$progress->city.' '.$progress->state;
         $test_max_pages = 20; 
