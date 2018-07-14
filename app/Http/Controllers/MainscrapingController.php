@@ -68,10 +68,10 @@ class MainscrapingController extends Controller
 
     public function getLeads_api(Request $request) {
         $leads_data = Info::where('user_id','=',$request->input('id'))->where('flag','=',0)->orderBy('created_at','DESC')->get(['*']);
-        $keyword_list = Keyword::get(['*']);
+        $keyword_list = Keyword::where('user_id','=',$request->input('id'))->orderBy('id','ASC')->get(['*']);
         $data = array();
 
-        $data['active_data'] = $leads_data;
+        $data['leads_data'] = $leads_data;
         $data['keyword'] = $keyword_list;
         return response()->json($data);
     }
