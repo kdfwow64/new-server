@@ -71,7 +71,7 @@ class MainscrapingController extends Controller
         $keyword_list = Keyword::get(['*']);
         $data = array();
 
-        $data['active_data'] = $active_data;
+        $data['active_data'] = $leads_data;
         $data['keyword'] = $keyword_list;
         return response()->json($data);
     }
