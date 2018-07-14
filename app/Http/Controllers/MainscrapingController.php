@@ -81,8 +81,9 @@ class MainscrapingController extends Controller
     					->groupBy('keywords.id')
     					->get();
     	$keywords_list = Keyword::get(['*']);
-    	$data[0] = $active_data;
-    	$data[1] = $keywords_list;
+    	$data = array();
+    	$data['active'] = $active_data;
+    	$data['keyword'] = $keywords_list;
         return response()->json($data);
     }
 
