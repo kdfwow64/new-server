@@ -84,7 +84,7 @@ class MainscrapingController extends Controller
     	$data = array();
     	$data['active'] = $active_data;
     	$data['keyword'] = $keywords_list;
-        return response()->json($data);
+        return response()->json($keywords_list);
     }
 
     public function removeLead_api(Request $request) {
