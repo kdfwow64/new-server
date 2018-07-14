@@ -80,7 +80,10 @@ class MainscrapingController extends Controller
     					->selectraw('COUNT(if(infos.option = 0, 1, NULL)) as count_flag')
     					->groupBy('keywords.id')
     					->get();
-        return response()->json($active_data);
+    	$keywords_list = Keyword::get(['*']);
+    	$data[0] = $active_data;
+    	$data[1] = $keywords_list;
+        return response()->json($data);
     }
 
     public function removeLead_api(Request $request) {
