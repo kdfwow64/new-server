@@ -68,7 +68,12 @@ class MainscrapingController extends Controller
 
     public function getLeads_api(Request $request) {
         $leads_data = Info::where('user_id','=',$request->input('id'))->where('flag','=',0)->orderBy('created_at','DESC')->get(['*']);
-        return response()->json($leads_data);
+        $keyword_list = Keyword::get(['*']);
+        $data = array();
+
+        $data['active_data'] = $active_data;
+        $data['keyword'] = $keyword_list;
+        return response()->json($data);
     }
 
     public function getActive_api(Request $request) {
@@ -80,11 +85,7 @@ class MainscrapingController extends Controller
     					->selectraw('COUNT(if(infos.option = 0, 1, NULL)) as count_flag')
     					->groupBy('keywords.id')
     					->get();
-    	$keywords_list = Keyword::get(['*']);
-    	$data = array();
-    	$data['active'] = $active_data;
-    	$data['keyword'] = $keywords_list;
-        return response()->json($keywords_list);
+        return response()->json($active_data);
     }
 
     public function removeLead_api(Request $request) {
