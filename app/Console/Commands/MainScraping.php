@@ -85,7 +85,7 @@ class MainScraping extends Command
         // General configuration
         $test_website_url = "website.com"; // The URL, or a sub-string of it, of the indexed website.
 
-        $progress = Keyword::where('status','=',0)->orderBy('created_at','ASC')->first();
+        $progress = Keyword::where('status','=',0)->orderBy('id','ASC')->first();
         if(!$progress) {
             echo 'nothing else';
             exit();
