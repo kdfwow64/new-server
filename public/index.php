@@ -19,7 +19,7 @@
 |
 */
  // header("Access-Control-Allow-Origin: http://prospectpromoter.com");
- require __DIR__.'/../bootstrap/autoload.php'; header("Access-Control-Allow-Origin: http://localhost");
+ require __DIR__.'/../bootstrap/autoload.php'; header("Access-Control-Allow-Origin: *");
 
 /*
 |--------------------------------------------------------------------------
