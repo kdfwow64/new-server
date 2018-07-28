@@ -455,3 +455,23 @@ Stack trace:
 #1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
 #2 {main}
   thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 08:38:41 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Illuminate\Foundation\Application::configure() in /home/prospectpromoter/public_html/members/bootstrap/app.php:55
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/public/index.php(36): require_once()
+#1 {main}
+  thrown in /home/prospectpromoter/public_html/members/bootstrap/app.php on line 55
+[28-Jul-2018 08:38:47 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Illuminate\Foundation\Application::configure() in /home/prospectpromoter/public_html/members/bootstrap/app.php:55
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/public/index.php(36): require_once()
+#1 {main}
+  thrown in /home/prospectpromoter/public_html/members/bootstrap/app.php on line 55
+[28-Jul-2018 08:38:54 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Illuminate\Foundation\Application::configure() in /home/prospectpromoter/public_html/members/bootstrap/app.php:55
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/public/index.php(36): require_once()
+#1 {main}
+  thrown in /home/prospectpromoter/public_html/members/bootstrap/app.php on line 55
+[28-Jul-2018 08:39:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Illuminate\Foundation\Application::configure() in /home/prospectpromoter/public_html/members/bootstrap/app.php:55
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/public/index.php(36): require_once()
+#1 {main}
+  thrown in /home/prospectpromoter/public_html/members/bootstrap/app.php on line 55
