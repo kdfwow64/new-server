@@ -161,3 +161,297 @@ Stack trace:
 #1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
 #2 {main}
   thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[27-Jul-2018 20:56:21 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[27-Jul-2018 20:58:22 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[27-Jul-2018 20:58:35 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[27-Jul-2018 21:09:06 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[27-Jul-2018 21:11:28 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[27-Jul-2018 21:11:34 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 00:27:55 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 00:43:39 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 04:46:01 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 04:46:08 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 04:46:16 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 04:47:12 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 04:47:16 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 04:47:24 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 04:47:35 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 04:47:38 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 04:51:45 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 04:52:46 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 04:53:17 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 04:53:24 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 05:24:12 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 05:24:13 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 05:24:17 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 05:24:27 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 05:26:59 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 05:27:03 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 05:27:06 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 05:30:39 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 05:30:54 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 05:31:00 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 05:31:04 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 05:33:32 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 05:35:12 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 05:39:34 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 05:39:34 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 05:39:39 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 05:49:55 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 05:50:00 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 05:50:10 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 05:51:44 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 05:51:49 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 05:51:53 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 05:52:02 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 05:56:36 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 06:01:00 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 06:01:04 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 06:01:07 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 06:27:12 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
+[28-Jul-2018 06:59:18 UTC] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit686f4d350ae3003b013911c0569c007c' not found in /home/prospectpromoter/public_html/members/vendor/autoload.php:7
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/bootstrap/autoload.php(17): require()
+#1 /home/prospectpromoter/public_html/members/public/index.php(22): require('/home/prospectp...')
+#2 {main}
+  thrown in /home/prospectpromoter/public_html/members/vendor/autoload.php on line 7
