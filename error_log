@@ -1,0 +1,5 @@
+[28-Jul-2018 08:38:27 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Illuminate\Foundation\Application::configure() in /home/prospectpromoter/public_html/members/bootstrap/app.php:55
+Stack trace:
+#0 /home/prospectpromoter/public_html/members/artisan(18): require_once()
+#1 {main}
+  thrown in /home/prospectpromoter/public_html/members/bootstrap/app.php on line 55
