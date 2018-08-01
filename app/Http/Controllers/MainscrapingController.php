@@ -348,6 +348,8 @@ class MainscrapingController extends Controller
 		                    }
 		                    break;
 		                }
+		            } else {
+		            	Keyword::where('id',$progress->id)->update(array('status' => 0));
 		            }
 		            mark_ip_usage(); // store IP usage, this is very important to avoid detection and gray/blacklistings
 		            global $process_result; // contains metainformation from the process_raw() function
