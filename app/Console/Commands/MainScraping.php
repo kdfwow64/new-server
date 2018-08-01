@@ -131,17 +131,27 @@ class MainScraping extends Command
             echo "<html><body>";
         }
 
-        $keywords = explode(",", $test_keywords);
-        if (!count($keywords)) die ("Error: no keywords defined.$NL");
+//        $keywords = explode(",", $test_keywords);
+//        if (!count($keywords)) die ("Error: no keywords defined.$NL");
 //        if (!rmkdir($working_dir)) die("Failed to create/open $working_dir$NL");
 
         $country_data = get_google_cc($test_country, $test_language);
-        if (!$country_data) die("Invalid country/language code specified.$NL");
+        if (!$country_data) {
+            Keyword::where('id',$progress->id)->update(array('status' => 0));
+            die("Invalid country/language code specified.$NL");
+        }
 
 
         $ready = get_license();
-        if (!$ready) die("The specified API key account for user $uid is not active or invalid. $NL");
-        if ($PLAN['protocol'] != "http") die("Wrong proxy protocol configured, switch to HTTP. $NL");
+        if (!$ready) {
+            Keyword::where('id',$progress->id)->update(array('status' => 0));
+            die("The specified API key account for user $uid is not active or invalid. $NL");
+        }
+
+        if ($PLAN['protocol'] != "http") {
+            Keyword::where('id',$progress->id)->update(array('status' => 0));
+            die("Wrong proxy protocol configured, switch to HTTP. $NL");
+        }
 
     
         $ch = NULL;
@@ -152,7 +162,8 @@ class MainScraping extends Command
         $siterank_data = array();
 
         $break=0; // variable used to cancel loop without losing ranking data
-        foreach ($keywords as $keyword)
+        $keyword = $test_keywords;
+//        foreach ($keywords as $keyword)
         {
             $rank = 0;
             $max_errors_page = 5; // abort script if there are 5 errors in a row, that should not happen
@@ -178,11 +189,13 @@ class MainScraping extends Command
                         $ok = rotate_proxy(); // start/rotate to the IP that has not been started for the longest time, also tests if proxy connection is working
                         if ($ok != 1)
                         {
+                            Keyword::where('id',$progress->id)->update(array('status' => 0));
                             die ("Fatal error: proxy rotation failed:$NL $ok$NL");
                         }
                         $ip_ready = check_ip_usage(); // test if ip has not been used within the critical time
                         if (!$ip_ready)
                         {
+                            Keyword::where('id',$progress->id)->update(array('status' => 0));
                             die("ERROR: No fresh IPs left, try again later. $NL");
                         } else
                         {
@@ -212,6 +225,7 @@ class MainScraping extends Command
                                 break;
                             } else
                             {
+                                Keyword::where('id',$progress->id)->update(array('status' => 0));
                                 die ("ERROR: Max keyword errors reached, something is going wrong. $NL");
                             }
                             break;
