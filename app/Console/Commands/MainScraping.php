@@ -98,6 +98,7 @@ class MainScraping extends Command
         $test_max_pages = 20; 
         $test_100_resultpage = 0; 
 
+        echo $test_keywords;
         
         $test_country = "global"; 
         $test_language = "en"; 
@@ -118,32 +119,40 @@ class MainScraping extends Command
         $results = array();
 
 
-        $country_data = get_google_cc($test_country, $test_language);
-        if (!$country_data) {
-            Keyword::where('id',$progress->id)->update(array('status' => 0));
-            die("Invalid country/language code specified.$NL");
+        if ($show_html) $NL = "<br>\n"; else $NL = "\n";
+        if ($show_html) $HR = "<hr>\n"; else $HR = "_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\n";
+        if ($show_html) $B = "<b>"; else $B = "!";
+        if ($show_html) $B_ = "</b>"; else $B_ = "!";
+
+
+
+        if ($show_html)
+        {
+            echo "<html><body>";
         }
 
+        $keywords = explode(",", $test_keywords);
+        if (!count($keywords)) die ("Error: no keywords defined.$NL");
+//        if (!rmkdir($working_dir)) die("Failed to create/open $working_dir$NL");
+
+        $country_data = get_google_cc($test_country, $test_language);
+        if (!$country_data) die("Invalid country/language code specified.$NL");
+
+
         $ready = get_license();
-        if (!$ready) {
-            Keyword::where('id',$progress->id)->update(array('status' => 0));
-            die("The specified API key account for user $uid is not active or invalid. $NL");
-        }
-        if ($PLAN['protocol'] != "http") {
-            Keyword::where('id',$progress->id)->update(array('status' => 0));
-            die("Wrong proxy protocol configured, switch to HTTP. $NL");
-        } 
+        if (!$ready) die("The specified API key account for user $uid is not active or invalid. $NL");
+        if ($PLAN['protocol'] != "http") die("Wrong proxy protocol configured, switch to HTTP. $NL");
 
     
         $ch = NULL;
         $rotate_ip = 0; 
         $max_errors_total = 3; 
-                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                                                            
         $rank_data = array();
         $siterank_data = array();
 
         $break=0; // variable used to cancel loop without losing ranking data
-        $keyword = $test_keywords;
+        foreach ($keywords as $keyword)
         {
             $rank = 0;
             $max_errors_page = 5; // abort script if there are 5 errors in a row, that should not happen
@@ -157,6 +166,7 @@ class MainScraping extends Command
             */
             for ($page = 0; $page < $test_max_pages; $page++)
             {
+                $serp_data = load_cache($search_string, $page, $country_data, $force_cache); // load results from local cache if available for today
                 $serp_data = NULL;
                 $maxpages = 0;
 
@@ -168,13 +178,11 @@ class MainScraping extends Command
                         $ok = rotate_proxy(); // start/rotate to the IP that has not been started for the longest time, also tests if proxy connection is working
                         if ($ok != 1)
                         {
-                            Keyword::where('id',$progress->id)->update(array('status' => 0));
                             die ("Fatal error: proxy rotation failed:$NL $ok$NL");
                         }
                         $ip_ready = check_ip_usage(); // test if ip has not been used within the critical time
                         if (!$ip_ready)
                         {
-                            Keyword::where('id',$progress->id)->update(array('status' => 0));
                             die("ERROR: No fresh IPs left, try again later. $NL");
                         } else
                         {
@@ -208,8 +216,6 @@ class MainScraping extends Command
                             }
                             break;
                         }
-                    } else  {
-                        Keyword::where('id',$progress->id)->update(array('status' => 0));
                     }
                     mark_ip_usage(); // store IP usage, this is very important to avoid detection and gray/blacklistings
                     global $process_result; // contains metainformation from the process_raw() function
@@ -230,6 +236,7 @@ class MainScraping extends Command
                         $serp_data['cc'] = $country_data['cc'];
                         $serp_data['lc'] = $country_data['lc'];
                         $serp_data['result_count'] = $result_count;
+                        store_cache($serp_data, $search_string, $page, $country_data); // store results into local cache
                     }
 
                     if ($process_result != "PROCESS_SUCCESS_MORE")
@@ -237,7 +244,16 @@ class MainScraping extends Command
                         $break=1;
                         //break;
                     } // last page
-                   
+                    if (!$load_all_ranks)
+                    {
+                        for ($n = 0; $n < $result_count; $n++)
+                            if (strstr($results[$n]['url'], $test_website_url))
+                            {
+                                verbose("Located $test_website_url within search results.$NL");
+                                $break=1;
+                                //break;
+                            }
+                    }
 
                 } // scrape clause
 
@@ -252,12 +268,19 @@ class MainScraping extends Command
                     $rank_data[$keyword][$rank]['desc'] = $serp_data[$ref]['desc'];
                     $rank_data[$keyword][$rank]['type'] = $serp_data[$ref]['type'];
                     //$rank_data[$keyword][$rank]['desc']=$serp_data['desc'']; // not really required
+                    if (strstr($rank_data[$keyword][$rank]['url'], $test_website_url))
+                    {
+                        $info = array();
+                        $info['rank'] = $rank;
+                        $info['url'] = $rank_data[$keyword][$rank]['url'];
+                        $siterank_data[$keyword][] = $info;
+                    }
                 }
                 if ($break == 1) break;
 
             } // page loop
         } // keyword loop
-
+        $fff = 0;
         if ($show_all_ranks)
         {
             foreach ($rank_data as $keyword => $ranks)
