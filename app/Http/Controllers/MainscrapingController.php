@@ -218,8 +218,6 @@ class MainscrapingController extends Controller
 	    $test_keywords = $progress->keyword.' '.$progress->city.' '.$progress->state;
 	    $test_max_pages = 20; 
 	    $test_100_resultpage = 0; 
-
-	    echo $test_keywords;
 	    
 	    $test_country = "us"; 
 	    $test_language = "en"; 
@@ -240,24 +238,17 @@ class MainscrapingController extends Controller
 		$results = array();
 
 
-		if ($show_html) $NL = "<br>\n"; else $NL = "\n";
-		if ($show_html) $HR = "<hr>\n"; else $HR = "_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\n";
-		if ($show_html) $B = "<b>"; else $B = "!";
-		if ($show_html) $B_ = "</b>"; else $B_ = "!";
-
-
-
 		if ($show_html)
 		{
 		    echo "<html><body>";
 		}
 
-		$keywords = explode(",", $test_keywords);
+	
 		if (!count($keywords)) {
 			Keyword::where('id',$progress->id)->update(array('status' => 0));
 			die ("Error: no keywords defined.$NL");
 		}
-	//	if (!rmkdir($working_dir)) die("Failed to create/open $working_dir$NL");
+		rmkdir($working_dir);
 
 		$country_data = get_google_cc($test_country, $test_language);
 		if (!$country_data) {
@@ -284,12 +275,12 @@ class MainscrapingController extends Controller
 		$siterank_data = array();
 
 		$break=0; // variable used to cancel loop without losing ranking data
-		foreach ($keywords as $keyword)
+		$keyword = $keywords;
+	//	foreach ($keywords as $keyword)
 		{
 		    $rank = 0;
 		    $max_errors_page = 5; // abort script if there are 5 errors in a row, that should not happen
 
-		    if ($test_max_pages <= 0) break;
 		    $search_string = urlencode($keyword);
 		    $rotate_ip = 1; // IP rotation for each new keyword
 
@@ -298,7 +289,6 @@ class MainscrapingController extends Controller
 		    */
 		    for ($page = 0; $page < $test_max_pages; $page++)
 		    {
-		        $serp_data = load_cache($search_string, $page, $country_data, $force_cache); // load results from local cache if available for today
 		    	$serp_data = NULL;
 		        $maxpages = 0;
 
