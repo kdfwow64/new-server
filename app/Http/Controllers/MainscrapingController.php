@@ -208,7 +208,7 @@ class MainscrapingController extends Controller
 	    // General configuration
 	    $test_website_url = "website.com"; // The URL, or a sub-string of it, of the indexed website.
 
-	    $progress = Keyword::first();
+	    $progress = Keyword::where('status','=',0)->first();
 	    if(!$progress) {
 	    	echo 'nothing else';
 	    	exit();
