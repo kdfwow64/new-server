@@ -132,16 +132,28 @@ class MainScraping extends Command
         }
 
         $keywords = explode(",", $test_keywords);
-        if (!count($keywords)) die ("Error: no keywords defined.$NL");
+        if (!count($keywords)) {
+            Keyword::where('id',$progress->id)->update(array('status' => 0));
+            die ("Error: no keywords defined.$NL");
+        }
 //        if (!rmkdir($working_dir)) die("Failed to create/open $working_dir$NL");
 
         $country_data = get_google_cc($test_country, $test_language);
-        if (!$country_data) die("Invalid country/language code specified.$NL");
+        if (!$country_data) {
+            Keyword::where('id',$progress->id)->update(array('status' => 0));
+            die("Invalid country/language code specified.$NL");
+        }
 
 
         $ready = get_license();
-        if (!$ready) die("The specified API key account for user $uid is not active or invalid. $NL");
-        if ($PLAN['protocol'] != "http") die("Wrong proxy protocol configured, switch to HTTP. $NL");
+        if (!$ready) {
+            Keyword::where('id',$progress->id)->update(array('status' => 0));
+            die("The specified API key account for user $uid is not active or invalid. $NL");
+        }
+        if ($PLAN['protocol'] != "http") {
+            Keyword::where('id',$progress->id)->update(array('status' => 0));
+            die("Wrong proxy protocol configured, switch to HTTP. $NL");
+        }
 
     
         $ch = NULL;
