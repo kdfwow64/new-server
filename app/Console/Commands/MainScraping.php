@@ -80,16 +80,19 @@ class MainScraping extends Command
         error_reporting(E_ALL & ~E_NOTICE);
        
         $pwd = '1502f31c69779f472c5dafbe59f410ce';
-        $uid = '9618';
+        $uid = '9618'; 
 
         // General configuration
         $test_website_url = "website.com"; // The URL, or a sub-string of it, of the indexed website.
-
-        $progress = Keyword::where('status','=',0)->orderBy('id','ASC')->first();
+        $progress = Keyword:::where('status','=',1)->where('start_date', '>', Carbon::now()->subMinutes(40)->toDateTimeString())->orderBy('id','ASC')->first();
         if(!$progress) {
-            echo 'nothing else';
-            exit();
+            $progress = Keyword::where('status','=',0)->orderBy('id','ASC')->first();
+            if(!$progress) {
+                echo 'nothing else';
+                exit();
+            }
         }
+        
         Keyword::where('id',$progress->id)->update(array('status' => 1));
         $currentTime = new Carbon;
         Keyword::where('id',$progress->id)->update(array('start_date' => $currentTime));
@@ -301,7 +304,7 @@ class MainScraping extends Command
                 foreach ($ranks as $rank)
                 {
                     $domain = $this->getDomainfromUrl($rank['url']);
-                    if((Info::where('domain_name',$domain)->get()->count()) == 0) { 
+                    if((Info::where('domain_name',$domain)->where('user_id',$progress->user_id)->get()->count()) == 0) { 
                         $new_info = new Info();
                         $new_info->business_name = $rank['title'];
                         $new_info->domain_name = $domain;
