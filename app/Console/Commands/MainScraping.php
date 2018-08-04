@@ -85,7 +85,7 @@ class MainScraping extends Command
         // General configuration
         $test_website_url = "website.com"; // The URL, or a sub-string of it, of the indexed website.
 //        $progress = Keyword:::where('status','=',1)->where('start_date', '<', Carbon::now()->subMinutes(35))->orderBy('id','ASC')->first();
-        $progress = DB::select("SELECT * FROM keywords WHERE start_date < timestamp(DATE_SUB(NOW(), INTERVAL 40 MINUTE)) AND status = 1 ")->first();
+        $progress = DB::select("SELECT * FROM keywords WHERE start_date < timestamp(DATE_SUB(NOW(), INTERVAL 40 MINUTE)) AND status = 1 limit 1");
         if(!$progress) {
             $progress = Keyword::where('status','=',0)->orderBy('id','ASC')->first();
             if(!$progress) {
