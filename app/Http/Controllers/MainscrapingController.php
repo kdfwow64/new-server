@@ -46,9 +46,8 @@ class MainscrapingController extends Controller
         $saved = $new_keyword->save();
 
         if($saved)
-            echo 1;
-        else
-            echo 0;
+            return ['flag' => 1];
+        return ['flag' => 0];
     }
 
     public function addkeyword(Request $request) {
